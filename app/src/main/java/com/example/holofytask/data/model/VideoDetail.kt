@@ -12,9 +12,8 @@ class VideoDetail {
 
     fun parseData(json: JSONArray) {
 
-        val videoData = VideoDetailData()
-
-        for (i in 0..json.length()) {
+        for (i in 0 until json.length()) {
+            val videoData = VideoDetailData()
             videoData.parseData(json.getJSONObject(i))
             videoDetailList.add(videoData)
         }

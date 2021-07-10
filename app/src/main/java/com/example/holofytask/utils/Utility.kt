@@ -1,6 +1,7 @@
 package com.example.holofytask.utils
 
 import org.json.JSONArray
+import org.json.JSONObject
 
 class Utility {
 
@@ -89,8 +90,9 @@ class Utility {
                 "    ]}]};"
 
         fun getJSONData(): JSONArray {
-            val jsonArray = JSONArray(videoData)
-            return jsonArray.getJSONObject(0).getJSONArray("videos")
+            val mainObject = JSONObject(videoData)
+            val categoryArray = mainObject.getJSONArray("categories")
+            return categoryArray.getJSONObject(0).getJSONArray("videos")
         }
     }
 }
